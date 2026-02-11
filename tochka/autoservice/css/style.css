@@ -1,0 +1,38 @@
+ body {
+    background-color: #f8f9fa;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.card {
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    border: none;
+}
+
+.card-header {
+    border-radius: 10px 10px 0 0 !important;
+    background-color: #343a40;
+    color: white;
+}
+
+.table th {
+    border-top: none;
+}
+
+.btn-action {
+    margin: 0 2px;
+}
+
+.status-badge {
+    font-size: 0.8em;
+    padding: 5px 10px;
+}
+
+.alert {
+    border-radius: 10px;
+}
