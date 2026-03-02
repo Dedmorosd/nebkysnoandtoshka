@@ -1,0 +1,66 @@
+ body {
+    background-color: #f8f9fa;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.card {
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    border: none;
+}
+
+.card-header {
+    border-radius: 10px 10px 0 0 !important;
+    background-color: #343a40;
+    color: white;
+}
+
+.table th {
+    border-top: none;
+}
+
+.btn-action {
+    margin: 0 2px;
+}
+
+.status-badge {
+    font-size: 0.8em;
+    padding: 5px 10px;
+}
+
+.alert {
+    border-radius: 10px;
+}
+/* Дополнительные стили для страницы автомобилей */
+.car-card {
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.car-card .card-header {
+    border-bottom: none;
+    padding: 1rem;
+}
+
+.car-card .card-body {
+    padding: 1.25rem;
+}
+
+.car-card .card-footer {
+    background: rgba(0,0,0,0.02);
+    border-top: 1px solid rgba(0,0,0,0.05);
+    padding: 0.75rem;
+}
+
+/* Адаптивность для модального окна */
+@media (max-width: 768px) {
+    .modal-dialog {
+        margin: 0.5rem;
+    }
+}
