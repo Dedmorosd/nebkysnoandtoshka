@@ -1,8 +1,6 @@
 <?php
-// Запускаем сессию только если она еще не запущена
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
 $host = '134.90.167.42';
 $port = 10306;
@@ -11,28 +9,13 @@ $username = 'Karachkin';
 $password = '*iNPsB2D[4NO!Hfx';
 
 try {
-    $pdo = new PDO("mysql:host=$host;port=$port;dbname=$dbname;charset=utf8mb4", $username, $password);
+    echo "<!-- Подключение к БД... -->\n";
+    $dsn = "mysql:host=$host;port=$port;dbname=$dbname;charset=utf8mb4";
+    $pdo = new PDO($dsn, $username, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+    echo "<!-- Подключение к БД успешно -->\n";
 } catch(PDOException $e) {
-    die("Ошибка подключения: " . $e->getMessage());
+    die("Ошибка подключения к БД: " . $e->getMessage());
 }
-
-function checkAuth() {
-    if (!isset($_SESSION['user_id'])) {
-        header('Location: login.php');
-        exit();
-    }
-}
-
-function isAdmin() {
-    return isset($_SESSION['role']) && $_SESSION['role'] == 'admin';
-}
-
-function isMechanic() {
-    return isset($_SESSION['role']) && $_SESSION['role'] == 'mechanic';
-}
-
-function isClient() {
-    return isset($_SESSION['role']) && $_SESSION['role'] == 'client';
-}
-?> 
+?>
