@@ -1,7 +1,7 @@
 <?php
 // Файл: includes/auth.php
 
-// Запускаем сессию, если еще не запущена
+// Запускаем сессию ТОЛЬКО если она еще не запущена
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
@@ -35,33 +35,11 @@ function isClient() {
 }
 
 /**
- * Проверка авторизации и перенаправление на login.php если не авторизован
+ * Проверка авторизации и перенаправление
  */
 function checkAuth() {
     if (!isLoggedIn()) {
         header('Location: login.php');
-        exit();
-    }
-}
-
-/**
- * Проверка прав администратора
- */
-function checkAdmin() {
-    checkAuth(); // Сначала проверяем авторизацию
-    if (!isAdmin()) {
-        header('Location: dashboard.php');
-        exit();
-    }
-}
-
-/**
- * Проверка прав механика или администратора
- */
-function checkMechanic() {
-    checkAuth();
-    if (!isMechanic() && !isAdmin()) {
-        header('Location: dashboard.php');
         exit();
     }
 }
